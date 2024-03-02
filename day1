@@ -1,0 +1,36 @@
+创建git仓库
+nginx的作用：
+            1.提高访问速度
+            2.进行负载均衡
+            3.保证后端服务安全
+server{
+	listen 80;
+	server_name localhost;
+		location /api/ {
+            		proxy_pass   http://localhost:8080/admin/;  #反向代理
+	}
+}
+upstream webservers{
+	server 192.168.100.128:8080;
+	server 192.168.100.129:8080;
+}
+server{
+	listen 80;
+	server_name localhost;
+		location /api/ {
+            		proxy_pass   http://webservers/admin/;  #负载均衡
+	}
+}
+
+密码不安全要使用DigestUtils中的MD5加密
+
+swagger可以生成接口文档，并且可以在线调试
+Knife4j是增强解决方案，使用要导入依赖
+@Api
+@ApiOperation
+
+Yapi 是设计阶段使用的工具，管理和维护接口
+
+当前端提交的数据和实体类中对应的属性差别比较大时，建议使用DTO来封装数据
+
+ThreadLocal为每个线程提供一个单独的存储空间

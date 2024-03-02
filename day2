@@ -1,0 +1,13 @@
+BeanUtils.copyProperties(x,y)把x中的数据复制给y
+
+重写extendMessageConverters方法
+  //创建一个信息转换器对象
+        MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
+        //需要为消息转换器设置一个对象转换器
+        converter.setObjectMapper(new JacksonObjectMapper());
+        converters.add(0,converter);
+
+Mapper是interface
+Controller中RequestMapping和Restcontroller都要加
+
+删除时需要考虑到是否会有关联
